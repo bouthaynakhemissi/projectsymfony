@@ -1,0 +1,28 @@
+
+
+<h1> liste des reservations</h1>
+<table border="1">
+    <tr>
+        <td>nom</td>
+        <td>heure_debut</td>
+        <td>heure_fin</td>
+
+
+    </tr>
+    {% for r in listReservation %}
+        {% block stylesheets %}
+
+        <link rel="stylesheet" href="{{ asset('css/liste.css') }}">
+        {% endblock %}
+        <tr>
+            <td>{{ r.nom}}</td>
+            <td>{{ r.heure_debut|date('H:i:s') }}</td>
+            <td>{{ r.heure_fin|date('H:i:s') }}</td>
+
+            <td><a href="{{ path ("reservationDelete",{'id':r.id}) }}">Supprimer</a></td>
+            <td><a href="{{ path ("reservationUpdate",{'id':r.id}) }}">Mise à jour</a></td>
+            <td><a href="{{ path ("Reservationconfirme",{'id':r.id}) }}">   Détails</a></td>
+
+        </tr>
+    {% endfor %}
+</table>

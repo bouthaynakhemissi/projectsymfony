@@ -1,0 +1,21 @@
+<h1>recherche Reservation</h1>
+<form action=""  method="post">
+    nom: <input type="text" name="input_nom">
+    <input type="submit"  value="Rechercher">
+</form>
+{% if  reservations is empty %}
+    Aucune reservation trouvée
+{% else %}
+    <table border="1">
+        <tr>
+            <td>nom</td>
+
+        </tr>
+        {% for r in reservations %}
+            <tr>
+                <td>{{ r.nom }}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endif  %}
